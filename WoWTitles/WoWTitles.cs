@@ -1,14 +1,14 @@
-﻿using Dalamud.Game.Command;
+using Dalamud.Game.Command;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using System.IO;
 using Dalamud.Interface.Windowing;
 using Dalamud.Plugin.Services;
-using SamplePlugin.Windows;
+using WoWTitles.Windows;
 
-namespace SamplePlugin;
+namespace WoWTitles;
 
-public sealed class Plugin : IDalamudPlugin
+public sealed class WoWTitles : IDalamudPlugin
 {
     [PluginService] internal static IDalamudPluginInterface PluginInterface { get; private set; } = null!;
     [PluginService] internal static ITextureProvider TextureProvider { get; private set; } = null!;
@@ -22,7 +22,7 @@ public sealed class Plugin : IDalamudPlugin
     private ConfigWindow ConfigWindow { get; init; }
     private MainWindow MainWindow { get; init; }
 
-    public Plugin()
+    public WoWTitles()
     {
         Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
 
